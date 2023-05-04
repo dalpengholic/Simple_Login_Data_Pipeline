@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  simple-producer:
+    build:
+      context: .
+      dockerfile: Dockerfile.producer 
+    container_name: kafka-producer
+    networks:
+      - my-simple-network
+
+networks:
+  my-simple-network:
+    external: true
+

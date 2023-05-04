@@ -22,7 +22,12 @@ sudo chown -R 1001:1001 zookeeper_data
 sudo chown -R 1001:1001 kafka_data
 ```
 
-4. Run with docker-compose
+4. Create a user-defined network 
+```Shell
+docker network create my-simple-network
+```
+
+5. Run with docker-compose
 ```Shell
 docker-compose -f docker-compose.kafka.yml up
 ```

@@ -3,14 +3,18 @@ version: "2"
 services:
   zookeeper:
     image: docker.io/bitnami/zookeeper:3.8
+    container_name: zookeeper
     ports:
       - "2181:2181"
     volumes:
       - "./zookeeper_data:/bitnami"
     environment:
       - ALLOW_ANONYMOUS_LOGIN=yes
+    networks:
+      - my-simple-network
   kafka:
     image: docker.io/bitnami/kafka:3.4
+    container_name: kafka
     ports:
       - "9092:9092"
     volumes:
@@ -23,7 +27,11 @@ services:
       - KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://:9092
     depends_on:
       - zookeeper
+    networks:
+      - my-simple-network
 
-
+networks:
+  my-simple-network:
+    external: true
 
 
