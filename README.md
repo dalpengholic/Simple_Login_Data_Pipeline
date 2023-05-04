@@ -24,5 +24,5 @@ sudo chown -R 1001:1001 kafka_data
 
 4. Run with docker-compose
 ```Shell
-docker-compose up
+docker-compose -f docker-compose.kafka.yml up
 ```
