@@ -16,7 +16,7 @@ mkdir zookeeper_data
 ```
 
 3. Change ownership of those two directory
-![Persisting your data_from_bitnami](https://hub.docker.com/r/bitnami/kafka)
+[Persisting your data_from_bitnami](https://hub.docker.com/r/bitnami/kafka)
 ```Shell
 sudo chown -R 1001:1001 zookeeper_data
 sudo chown -R 1001:1001 kafka_data
