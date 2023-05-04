@@ -32,7 +32,6 @@ docker network create my-simple-network
 docker-compose -f docker-compose.kafka.yml up
 # Run below command when kafka and zookeeper settle down
 docker-compose -f docker-compose.kafka-producer.yml up
-# Run below command when kafka producer completes its job
 docker-compose -f docker-compose-spark-simple.yml up
 # Run below command to get aggregated result of login data
 docker exec -it spark-node bash -c 'spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.4.0 /0501_kafka_consumer.py'
