@@ -30,4 +30,6 @@ docker network create my-simple-network
 5. Run with docker-compose
 ```Shell
 docker-compose -f docker-compose.kafka.yml up
+# Rua below command when kafka and zookeeper settle down
+docker-compose -f docker-compose.kafka-producer.yml up
 ```
