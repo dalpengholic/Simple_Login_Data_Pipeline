@@ -35,7 +35,7 @@ kafka_df = kafka_df.withColumn("date", kafka_df.timestamp.cast("date"))
 kafka_df = kafka_df.withColumn("month", date_format("date", "yyyy-MM"))
 
 # Group by user_id and month, and count the logins
-result = kafka_df.groupBy("month","user_id").agg(count("*").alias("total_logins"))
+result = kafka_df.groupBy("month").agg(count("*").alias("total_logins"))
 # Sort the result in descending order based on total_logins
 result = result.orderBy(col("total_logins").desc())
 
