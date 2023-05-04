@@ -11,7 +11,7 @@ services:
       - SPARK_MODE=master
     volumes:
       - ./spark_data:/bitnami/spark/data
-      - ./myspark-application/0501_kafka_consumer.py:/0501_kafka_consumer.py
+      - ./spark_consumers/0501_kafka_consumer.py:/0501_kafka_consumer.py
     networks:
       - my-simple-network
 
