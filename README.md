@@ -11,7 +11,7 @@ data producer - message queue - data consumer
 
 ### Main goals
 - Creating a working simple login data pipeline consisting of 3 components which are data producer, message queue(Kafka), and data consumer.
-- ![diagram]()
+- ![diagram](https://github.com/dalpengholic/Simple_Login_Data_Pipeline/blob/master/pics/simple-data-pipeline.drawio.png)
 
 ### Risk assessment
 - Apache Kafka(Kafka): No previous experience on Kafka and producer/consumer as well
@@ -39,7 +39,7 @@ data producer - message queue - data consumer
   - Message queue: `Apache Kafka` single node cluster
   - Data consumer: `Apache Spark` single node cluster. Spark Streaming used for Kafka consumer.
 - All the tools written above are going to be run by docker-compose files on localhost
-- ![result_screenshot]()
+- ![result_screenshot](https://github.com/dalpengholic/Simple_Login_Data_Pipeline/blob/master/pics/Screenshot-kafka.png)
 
 
 
