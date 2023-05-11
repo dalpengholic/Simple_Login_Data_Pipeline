@@ -1,33 +1,36 @@
 from pyspark.sql import SparkSession
-from pyspark.sql.types import StructType, StructField, StringType, IntegerType, TimestampType
-from datetime import datetime
 
-# create a SparkSession
+# Create a Spark session
 spark = SparkSession.builder \
-    .appName("PySpark to Elasticsearch example") \
-    .config("es.nodes", "elasticsearch") \
-    .config("es.port", "9200") \
+    .appName("Push DataFrame to Elasticsearch") \
+    .config("spark.es.nodes", "es") \
+    .config("spark.es.port", "9200") \
+    .config("spark.es.nodes.wan.only", "true") \
+    .config("spark.es.net.ssl", "true") \
+    .config("spark.es.net.ssl.cert.allow.self.signed", "true") \
+    .config("spark.es.net.ssl.cert.ca", "ca.crt") \
+    .config("spark.es.net.http.auth.user", "elastic") \
+    .config("spark.es.net.http.auth.pass", "2KeW2V6tKyJaz9gu") \
+    .config("spark.es.nodes.wan.only", "true") \
     .getOrCreate()
-data = [("Alicee", 21, datetime.now()), ("Bobb", 31, datetime.now()), ("Charliee", 36, datetime.now())]
 
-# Define schema for DataFrame
-schema = StructType([
-    StructField("name", StringType(), True),
-    StructField("age", IntegerType(), True),
-    StructField("timestamp", TimestampType(), True)
-])
 
-# Create DataFrame from data and schema
-df = spark.createDataFrame(data, schema=schema)
+# Define the Elasticsearch index and document type
+es_index = "my_index"
+es_doc_type = "my_doc_type"
 
-# Show DataFrame
+# Create a sample DataFrame
+data = [("Alice", 25), ("Bob", 30), ("Charlie", 35),("Deen", 15),("Flora",19)]
+df = spark.createDataFrame(data, ["name", "age"])
 df.show()
 
-
-df.write.format("org.elasticsearch.spark.sql") \
-    .option("es.resource", "myindex") \
+# Write the DataFrame to Elasticsearch
+df.write \
+    .format("org.elasticsearch.spark.sql") \
+    .option("es.resource", es_index) \
     .mode("overwrite") \
     .save()
 
-# stop the SparkSession
+# Stop the Spark session
 spark.stop()
+
