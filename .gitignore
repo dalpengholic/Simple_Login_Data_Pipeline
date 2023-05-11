@@ -4,3 +4,5 @@ spark_data
 certs
 es_data
 kibana_data
+ca.crt
+

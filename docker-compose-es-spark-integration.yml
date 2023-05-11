@@ -12,7 +12,7 @@ services:
     volumes:
       - ./spark_data:/bitnami/spark/data
       - ./spark_consumers/0501_kafka_consumer.py:/0501_kafka_consumer.py
-      - .ca.crt:/etc/ssl/certs/elasticsearch/ca.crt:ro
+      - ./ca.crt:/etc/ssl/certs/elasticsearch/ca.crt:ro
     networks:
       - my-simple-network
       
