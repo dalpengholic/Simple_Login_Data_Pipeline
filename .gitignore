@@ -1,3 +1,6 @@
 zookeeper_data
 kafka_data
 spark_data
+certs
+es_data
+kibana_data
