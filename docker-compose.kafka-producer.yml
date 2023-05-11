@@ -2,7 +2,7 @@ version: '3.8'
 services:
   simple-producer:
     build:
-      context: .
+      context: ./dockerfile_folder
       dockerfile: Dockerfile.producer 
     container_name: kafka-producer
     networks:
