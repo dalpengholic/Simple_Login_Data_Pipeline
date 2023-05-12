@@ -17,8 +17,10 @@ data producer - message queue - data consumer - data monitoring & visualization
   - Prometheus + Grafana: One of most popular visualization stack.
   - Elastic + Kibana: One of well known stack for search anddata visualization.
   - I decided to use Elastic + Kibana because I have experience of installation and managaing Elasticsearch and Kibana.
-- Version of Elasticsearch and Kibana: No previous experience on Kafka and producer/consumer as well
-- Itegration with Spark and Elasticsearch
+- Version selection of Elasticsearch and Kibana:
+  - Having experience only version 8 having default SSL, which means a client of Elasticsearch should be configured correctly to communicate with Elasticsearch
+  - It could be easy to install and run version 7 of Elasticsearch in terms of integration, but a new docker-compose file should be written
+- Itegration with Spark and Elasticsearch: No previous experience on integration Spark as a Kafka consumer with Elasticsearch
 
 ### Actions
 ### Results
