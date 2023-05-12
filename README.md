@@ -14,8 +14,9 @@ data producer - message queue - data consumer - data monitoring & visualization
 
 ### Risk assessment
 - Possible tools
-  - Prometheus + Grafana
-  - Elastic + Kibana
+  - Prometheus + Grafana: One of most popular visualization stack.
+  - Elastic + Kibana: One of well known stack for search anddata visualization.
+  - I decided to use Elastic + Kibana because I have experience of installation and managaing Elasticsearch and Kibana.
 - Version of Elasticsearch and Kibana: No previous experience on Kafka and producer/consumer as well
 - Itegration with Spark and Elasticsearch
 
