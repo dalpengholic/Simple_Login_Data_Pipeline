@@ -9,7 +9,13 @@ data producer - message queue - data consumer - data monitoring & visualization
 - In this 2nd iteration, additiona sub pipeline is goint to be added at the end of data consumer sub pipeline so that any business decision makers or data analysts could take advantage of information presented using graphs and metrics
 
 ### Main goals
+- Adding a working sub pipeline for data visualization and monitoring.
+- ![diagram](https://github.com/dalpengholic/Simple_Login_Data_Pipeline/blob/master/pics/simple-data-pipeline.drawio.png)
+
 ### Risk assessment
+- Possible tools
+  - Prometheus + Grafana
+  - Elastic + Kibana
 - Version of Elasticsearch and Kibana: No previous experience on Kafka and producer/consumer as well
 - Itegration with Spark and Elasticsearch
 
