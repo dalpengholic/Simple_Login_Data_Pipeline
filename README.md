@@ -1,10 +1,13 @@
 # Simple Login Data Pipeline
 Simple Login Data Pipeline consisting of 
-data producer - message queue - data consumer - data monitoring
+data producer - message queue - data consumer - data monitoring & visualization
 
 
 ## 2nd iteration 
 ### Project requirements
+- A data pipeline having data source or data producer, message queue and data consumer was built after the 1st iteration.
+- In this 2nd iteration, additiona sub pipeline is goint to be added at the end of data consumer sub pipeline so that any business decision makers or data analysts could take advantage of information presented using graphs and metrics
+
 ### Main goals
 ### Risk assessment
 - Version of Elasticsearch and Kibana: No previous experience on Kafka and producer/consumer as well
