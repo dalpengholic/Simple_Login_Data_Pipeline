@@ -10,7 +10,7 @@ data producer - message queue - data consumer - data monitoring & visualization
 
 ### Main goals
 - Adding a working sub pipeline for data visualization and monitoring.
-- ![diagram](https://github.com/dalpengholic/Simple_Login_Data_Pipeline/blob/master/pics/simple-data-pipeline.drawio.png)
+- ![diagram](https://github.com/dalpengholic/Simple_Login_Data_Pipeline/blob/master/pics/simple-data-pipeline-drawio-2nd.png)
 
 ### Risk assessment
 - Possible tools
