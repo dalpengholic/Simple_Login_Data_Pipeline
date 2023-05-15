@@ -55,12 +55,12 @@ docker-compose -f docker-compose.kafka.yml up -d
 docker-compose -f docker-compose.kafka-producer.yml up -d
 sudo sysctl -w vm.max_map_count=262144
 mkdir es_data kibana_data 
-sudo chown -R 1001:root es_data kibana_data
+sudo chown -R 1001:1001 es_data kibana_data
 docker-compose -f docker-compose.es-kibana.yml up -d
 docker cp es:/usr/share/elasticsearch/config/certs/ca/ca.crt .
-sudo chown 1001:root ca.crt
+sudo chown 1001:1001 ca.crt
 mkdir spark_data_checkpoint
-sudo chown 1001:root spark_data_checkpoint
+sudo chown 1001:1001 spark_data_checkpoint
 docker-compose -f docker-compose-spark-simple.yml up -d
 docker exec -it spark-node bash -c 'spark-submit --packages org.elasticsearch:elasticsearch-spark-30_2.12:8.1.2,org.apache.spark:spark-sql-kafka-0-10_2.12:3.4.0 /0501_kafka_consumer.py'
 ```
