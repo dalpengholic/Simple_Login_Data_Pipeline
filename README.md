@@ -5,8 +5,8 @@ data producer - message queue - data consumer - data monitoring & visualization
 
 ## 2nd iteration 
 ### Project requirements
-- A data pipeline having data source or data producer, message queue and data consumer was built after the 1st iteration.
-- In this 2nd iteration, additiona sub pipeline is goint to be added at the end of data consumer sub pipeline so that any business decision makers or data analysts could take advantage of information presented using graphs and metrics
+- A data pipeline having data source or data producer, event queue and data consumer was built after the 1st iteration.
+- In this 2nd iteration, additional sub pipeline is added at the end of data consumer sub pipeline so that any business decision makers or data analysts could take advantage of information presented using graphs and metrics
 
 ### Main goals
 - Adding a working sub pipeline for data visualization and monitoring.
@@ -14,13 +14,14 @@ data producer - message queue - data consumer - data monitoring & visualization
 
 ### Risk assessment
 - Possible tools
-  - Prometheus + Grafana: One of most popular visualization stack.
-  - Elastic + Kibana: One of well known stack for search anddata visualization.
-  - I decided to use Elastic + Kibana because I have experience of installation and managaing Elasticsearch and Kibana.
+  - Prometheus + Grafana: One of most popular visualization stack. Less experience of installation and operation.
+  - Elasticsearch + Kibana: One of well known stack for search and data visualization.
+  - Elasticsearch + Kibana stack is selected to reduce additional learning time and focus on adding visulaization function to the whole pipeline.
 - Version selection of Elasticsearch and Kibana:
-  - Having experience only version 8 having default SSL, which means a client of Elasticsearch should be configured correctly to communicate with Elasticsearch
-  - It could be easy to install and run version 7 of Elasticsearch in terms of integration, but a new docker-compose file should be written
-- Itegration with Spark and Elasticsearch: No previous experience on integration Spark as a Kafka consumer with Elasticsearch
+  - Having experience only version 8 having default SSL, which means a client of Elasticsearch should be configured correctly to communicate with Elasticsearch.
+  - From integration point of view, installation and operation of version 7 of Elasticsearch could be easy due to the fact of no authentication needed, but a new docker-compose file should be written.
+  - Version 8 of Elasticsearch and Kibana is chosen. However, the cost of SSL configuration between spark and Elasticsearch should be payed.
+- Integration with Spark and Elasticsearch: No previous experience on integration Spark as a Kafka consumer with Elasticsearch
 
 ### Actions
 ### Results
