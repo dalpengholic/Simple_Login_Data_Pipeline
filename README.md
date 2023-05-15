@@ -24,6 +24,10 @@ data producer - message queue - data consumer - data monitoring & visualization
 - Integration with Spark and Elasticsearch: No previous experience on integration Spark as a Kafka consumer with Elasticsearch
 
 ### Actions
+- Elasticsearch and Kibana:
+  - Use a ready-made docker-compose.yml file made by myself and modify it to have docker-compose-es-spark-integration.yml which runs Spark and Elasticsearch and Kibana together. 
+  - For getting proper configuration, creating a simple dataframe at Spark and push it to Elasticsearch by using 0511_mock_kafka_consumer_to_es.py under spark_consumers folder.
+  - After confirming a correct integration between Spark and Elasticsearch, updating the real consumer file `0501_kafka_consumer.py` to push data from Spark Streaming to Elasticsearch.
 ### Results
 ### How to run
 ```Shell
