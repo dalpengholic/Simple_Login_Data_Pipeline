@@ -29,6 +29,20 @@ data producer - message queue - data consumer - data monitoring & visualization
   - For getting proper configuration, creating a simple dataframe at Spark and push it to Elasticsearch by using 0511_mock_kafka_consumer_to_es.py under spark_consumers folder.
   - After confirming a correct integration between Spark and Elasticsearch, updating the real consumer file `0501_kafka_consumer.py` to push data from Spark Streaming to Elasticsearch.
 ### Results
+- Decided tools as follows:
+  - At the 1st iteration
+    - Data producer: `Kakfa-producer` client with Python
+    - Event queue: `Apache Kafka` single node cluster
+    - Data consumer: `Apache Spark` single node cluster. Spark Streaming used for Kafka consumer.
+  - At the 2nd iteration
+    - Data visualiation layer: 
+      - `Elasticsearch` to store the aggregated data from Saprk
+      - `Kibana` to draw graphs and show metrics
+- All the tools written above could be run by docker-compose files on localhost
+- ![result_screenshot](https://github.com/dalpengholic/Simple_Login_Data_Pipeline/blob/master/pics/Screenshot-ES.png)
+
+
+
 ### How to run
 ```Shell
 git clone https://github.com/dalpengholic/Simple_Login_Data_Pipeline.git
