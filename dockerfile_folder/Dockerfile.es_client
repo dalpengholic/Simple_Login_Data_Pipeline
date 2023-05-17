@@ -1,6 +1,19 @@
-FROM jupyter/minimal-notebook
+FROM python:3.9-slim
 
-RUN pip install pandas matplotlib elasticsearch
+# Create a user with UID 1001
+RUN useradd --uid 1001 --create-home --shell /bin/bash jovyan
 
-CMD ["jupyter", "notebook", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root"]
+# Set the user as the default user
+USER jovyan
+
+# Install required packages
+RUN pip install pandas matplotlib elasticsearch jupyter
+
+# Set the working directory
+WORKDIR /home/jovyan
+
+ENV PATH="/home/jovyan/.local/bin:${PATH}"
+
+# Start Jupyter Notebook
+CMD ["jupyter", "notebook", "--ip=0.0.0.0", "--port=8888", "--no-browser"]
 
