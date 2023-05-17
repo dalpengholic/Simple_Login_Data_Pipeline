@@ -67,3 +67,11 @@ sudo chown 1001:1001 ca.crt
 docker-compose -f docker-compose-spark-simple.yml up -d
 docker exec -it spark-node bash -c 'spark-submit --packages org.elasticsearch:elasticsearch-spark-30_2.12:8.1.2,org.apache.spark:spark-sql-kafka-0-10_2.12:3.4.0 /0501_kafka_consumer.py'
 ```
+
+### Visualization layer added for Data Analyst
+```Shell
+docker-compose -f docker-compose.visual-layer.yml up
+# Copy and paste or just click url from the console to open jupyter-notebook
+# For instance) http://127.0.0.1:8888/?token=6624bb685c106f0cf89de947f409e34d98128b90fe4e4c9
+```
+
