@@ -40,7 +40,9 @@ data producer - message queue - data consumer - data monitoring & visualization
       - `Kibana` to draw graphs and show metrics
 - All the tools written above could be run by docker-compose files on localhost
 - The below is the result of show a near real time metrics and graphs. The aggregated user login information is pushed to Elasticsearch by Spark Streaming and Kibana keep refreshing evert 1 second so that it could present update login infomration. 
-- ![result_screenshot](https://github.com/dalpengholic/Simple_Login_Data_Pipeline/blob/master/pics/Screenshot-ES.png)
+- ![result_screenshot1](https://github.com/dalpengholic/Simple_Login_Data_Pipeline/blob/master/pics/Screenshot-ES.png)
+- Visualization layer added for data analysts
+- ![result_screenshot2](https://github.com/dalpengholic/Simple_Login_Data_Pipeline/blob/master/pics/notebook.png)
 
 
 
