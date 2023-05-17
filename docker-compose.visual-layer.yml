@@ -1,0 +1,14 @@
+version: '3'
+services:
+  jupyter:
+    build:
+      context: ./dockerfile_folder
+      dockerfile: Dockerfile/Dockerfile.es_client
+    ports:
+      - 8888:8888
+    volumes:
+      - ./es_client/es_client_for_visualization.ipynb/:/home/jovyan/work/es_client_for_visualization.ipynb
+    environment:
+      - CA_CERT_PATH=/path/to/ca.crt
+      - ES_PASSWORD=your_es_password
+
