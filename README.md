@@ -3,49 +3,26 @@ Simple Login Data Pipeline consisting of
 data producer - message queue - data consumer - data monitoring & visualization
 
 
-## 2nd iteration 
+## 3rd iteration 
 ### Project requirements
-- A data pipeline having data source or data producer, event queue and data consumer was built after the 1st iteration.
-- In this 2nd iteration, additional sub pipeline is added at the end of data consumer sub pipeline so that any business decision makers or data analysts could take advantage of information presented using graphs and metrics
+- After 2nd iteration, the data pipeline was able to have data source or data producer, event queue, data consumer, and data analytic and monitoring layer by adding Elsticsearch, Kibana and Jupyter-Notebook with elasticsearch python client.
+- In this 3rd iteration, this simple data pipeline has to become more advanced version by decoupling kafka-producer and application which calls kafka-producer wrapper and adding data schema management layer.
 
 ### Main goals
-- Adding a working sub pipeline for data visualization and monitoring.
+- Decoupling kafka-producer and application which calls kafk
+a-producer wrapper
+- Adding a schemy registry layer
 - ![diagram](https://github.com/dalpengholic/Simple_Login_Data_Pipeline/blob/master/pics/simple-data-pipeline-drawio-2nd.png)
 
 ### Risk assessment
-- Possible tools
-  - Prometheus + Grafana: One of most popular visualization stack. Less experience of installation and operation.
-  - Elasticsearch + Kibana: One of well known stack for search and data visualization.
-  - Elasticsearch + Kibana stack is selected to reduce additional learning time and focus on adding visulaization function to the whole pipeline.
-- Version selection of Elasticsearch and Kibana:
-  - Having experience only version 8 having default SSL, which means a client of Elasticsearch should be configured correctly to communicate with Elasticsearch.
-  - From integration point of view, installation and operation of version 7 of Elasticsearch could be easy due to the fact of no authentication needed, but a new docker-compose file should be written.
-  - Version 8 of Elasticsearch and Kibana is chosen. However, the cost of SSL configuration between spark and Elasticsearch should be payed.
-- Integration with Spark and Elasticsearch: No previous experience on integration Spark as a Kafka consumer with Elasticsearch
+- Making a kakfa-producer wrapper:
+  - Difficulty level: easy?
+- Adding a schema registry layer
+  - Difficulty levle: ??
 
 ### Actions
-- Elasticsearch and Kibana:
-  - Use a ready-made docker-compose.yml file made by myself and modify it to have docker-compose-es-spark-integration.yml which runs Spark and Elasticsearch and Kibana together. 
-  - For getting proper configuration, creating a simple dataframe at Spark and push it to Elasticsearch by using 0511_mock_kafka_consumer_to_es.py under spark_consumers folder.
-  - After confirming a correct integration between Spark and Elasticsearch, updating the real consumer file `0501_kafka_consumer.py` to push data from Spark Streaming to Elasticsearch.
+- Decoupling kafka-producer:
 ### Results
-- Decided tools as follows:
-  - At the 1st iteration
-    - Data producer: `Kakfa-producer` client with Python
-    - Event queue: `Apache Kafka` single node cluster
-    - Data consumer: `Apache Spark` single node cluster. Spark Streaming used for Kafka consumer.
-  - At the 2nd iteration
-    - Data visualiation layer: 
-      - `Elasticsearch` to store the aggregated data from Saprk
-      - `Kibana` to draw graphs and show metrics
-- All the tools written above could be run by docker-compose files on localhost
-- The below is the result of show a near real time metrics and graphs. The aggregated user login information is pushed to Elasticsearch by Spark Streaming and Kibana keep refreshing evert 1 second so that it could present update login infomration. 
-- ![result_screenshot1](https://github.com/dalpengholic/Simple_Login_Data_Pipeline/blob/master/pics/Screenshot-ES.png)
-- Visualization layer added for data analysts
-- ![result_screenshot2](https://github.com/dalpengholic/Simple_Login_Data_Pipeline/blob/master/pics/notebook.png)
-
-
-
 ### How to run
 ```Shell
 git clone https://github.com/dalpengholic/Simple_Login_Data_Pipeline.git
