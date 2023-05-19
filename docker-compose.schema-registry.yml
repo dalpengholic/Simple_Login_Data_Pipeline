@@ -55,34 +55,11 @@ services:
     environment:
       SCHEMA_REGISTRY_HOST_NAME: schema-registry
       SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: 'broker:29092'
-      SCHEMA_REGISTRY_LISTENERS: http://0.0.0.0:8081
+      SCHEMA_REGISTRY_LISTENERS: 'http://0.0.0.0:8081'
+      SCHEMA_REGISTRY_COMPATIBILITY_LEVEL: backward
     networks:
       - my-simple-network
 
-        #  kafka-ui:
-        #    container_name: kafka-ui
-        #    image: provectuslabs/kafka-ui:latest
-        #    extra_hosts:
-        #      - host.docker.internal:host-gateway
-        #    ports:
-        #      - 8080:8080
-        #    restart: always
-        #    environment:
-        #      - KAFKA_CLUSTERS_0_NAME=local-ui
-        #      - KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=host.docker.internal:9092
-        #      - KAFKA_CLUSTERS_0_ZOOKEEPER=host.docker.internal:2181
-        #    networks:
-        #      - my-simple-network
-        #
-        #  simple-producer:
-        #    build:
-        #      context: ./dockerfile_folder
-        #      dockerfile: Dockerfile.producer 
-        #    container_name: kafka-producer
-        #    depends_on:
-        #      - broker
-        #    networks:
-        #      - my-simple-network
 
 
 networks:

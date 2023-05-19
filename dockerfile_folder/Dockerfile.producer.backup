@@ -1,0 +1,27 @@
+# Stage 1: Base image with dependencies for building
+FROM python:3.9-slim-buster AS builder
+
+# Install build dependencies
+RUN apt-get update \
+    && apt-get install -y build-essential
+
+# Stage 2: Final image
+FROM python:3.9-slim-buster
+
+# Copy required files from the builder stage
+COPY --from=builder /usr/local/lib/python3.9 /usr/local/lib/python3.9
+COPY --from=builder /usr/local/bin /usr/local/bin
+
+# Set the working directory
+WORKDIR /app
+
+# Copy the Kafka producer script to the working directory
+# COPY ./kafka_producers/0428_kafka_producer.py .
+
+
+# Install Python dependencies
+RUN pip install confluent-kafka urllib3
+
+# Run the Kafka producer script
+CMD ["python", "0519_kafka_producer_v3.py"]
+
