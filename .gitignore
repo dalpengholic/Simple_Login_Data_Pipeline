@@ -6,3 +6,4 @@ es_data
 kibana_data
 ca.crt
 spark_data_checkpoint
+.ipynb_checkpoints

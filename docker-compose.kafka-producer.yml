@@ -5,6 +5,9 @@ services:
       context: ./dockerfile_folder
       dockerfile: Dockerfile.producer 
     container_name: kafka-producer
+    volumes:
+      - ./kafka_producers/0519_kafka_producer_v2.py/:/app/0519_kafka_producer_v2.py
+
     networks:
       - my-simple-network
 
