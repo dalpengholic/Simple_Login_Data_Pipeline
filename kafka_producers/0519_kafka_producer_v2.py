@@ -11,7 +11,7 @@ topic = 'yourtopic2'
 browsers = ['safari', 'chrome', 'firefox', 'edge']
 
 # Define the Kafka bootstrap servers
-bootstrap_servers = 'localhost:9092'
+bootstrap_servers = 'broker:9092'
 
 # Create a Kafka producer configuration
 producer_config = {'bootstrap.servers': bootstrap_servers}
