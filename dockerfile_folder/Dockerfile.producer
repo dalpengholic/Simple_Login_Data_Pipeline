@@ -16,12 +16,12 @@ COPY --from=builder /usr/local/bin /usr/local/bin
 WORKDIR /app
 
 # Copy the Kafka producer script to the working directory
-COPY ./kafka_producers/0428_kafka_producer.py .
+# COPY ./kafka_producers/0428_kafka_producer.py .
 
 
 # Install Python dependencies
-RUN pip install kafka-python
+RUN pip install confluent-kafka
 
 # Run the Kafka producer script
-CMD ["python", "0428_kafka_producer.py"]
+CMD ["python", "0519_kafka_producer_v2.py"]
 
