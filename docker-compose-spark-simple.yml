@@ -11,7 +11,7 @@ services:
       - SPARK_MODE=master
     volumes:
       - ./spark_data:/bitnami/spark/data
-      - ./spark_consumers/0501_kafka_consumer.py:/0501_kafka_consumer.py
+      - ./spark_consumers/0519_kafka_consumer.py:/0519_kafka_consumer.py
       - ./ca.crt:/etc/ssl/certs/elasticsearch/ca.crt:ro
       - ./spark_data_checkpoint:/checkpoint  
     networks:
