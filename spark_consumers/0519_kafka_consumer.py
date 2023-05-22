@@ -6,7 +6,7 @@ spark = SparkSession.builder.appName("KafkaToElasticsearch").getOrCreate()
 spark.sparkContext.setLogLevel('ERROR')
 
 # Define the Kafka parameters
-kafka_bootstrap_servers = "kafka:9092"
+kafka_bootstrap_servers = "broker:9092"
 kafka_topic = "yourtopic2"
 schema_registry_url = "http://schema-registry:8081"  
 

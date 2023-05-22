@@ -30,21 +30,26 @@ docker network create my-simple-network
 cd Simple...
 
 # Setting necessary folders
-mkdir zookeeper_data kafka_data es_data kibana_data spark_data_checkpoint spark_data
-sudo chown -R 1001:1001 zookeeper_data kafka_data es_data kibana_data spark_data_checkpoint spark_data
-# Running a Kafka cluster
-docker-compose -f docker-compose.kafka.yml up -d
+sudo sysctl -w vm.max_map_count=262144
+
+# Running a single node cluster of zookeeper, kafka, and schema-registry
+docker-compose -f docker-compose.schema-registry.yml up
+
 # Running a Kafka producer 
 docker-compose -f docker-compose.kafka-producer.yml up -d
+
 # Running a Elasticsearch and Kibana
-sudo sysctl -w vm.max_map_count=262144
+mkdir es_data kibana_data spark_data spark_data_checkpoint
+sudo chown -R 1001:1001 es_data kibana_data spark_data spark_data_checkpoint
 docker-compose -f docker-compose.es-kibana.yml up -d
+
 # Copying ca.crt
 docker cp es:/usr/share/elasticsearch/config/certs/ca/ca.crt .
 sudo chown 1001:1001 ca.crt
+
 # Running a Spark cluseter
 docker-compose -f docker-compose-spark-simple.yml up -d
-docker exec -it spark-node bash -c 'spark-submit --packages org.elasticsearch:elasticsearch-spark-30_2.12:8.1.2,org.apache.spark:spark-sql-kafka-0-10_2.12:3.4.0 /0501_kafka_consumer.py'
+docker exec -it spark-node bash -c 'spark-submit --packages org.elasticsearch:elasticsearch-spark-30_2.12:8.1.2,org.apache.spark:spark-sql-kafka-0-10_2.12:3.4.0 /0519_kafka_consumer.py'
 ```
 
 ### Visualization layer added for Data Analyst
