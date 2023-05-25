@@ -14,7 +14,7 @@ def create_login_event():
 
     # Select a random browser from the list
     browser = random.choice(browsers)
-    country = random.choice(countires)
+    country = random.choice(countries)
 
     # Create the login event record
     login_event = {
