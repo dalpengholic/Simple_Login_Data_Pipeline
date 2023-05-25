@@ -10,7 +10,7 @@ def create_login_event():
     start_date = datetime(2022, 1, 1)
     end_date = datetime(2022, 12, 31)
     random_date = start_date + timedelta(seconds=random.randint(0, int((end_date - start_date).total_seconds())))
-    timestamp = random_date.strftime('%Y-%m-%dT%H:%M:%SZ')
+    timestamp = random_date.timestamp()
 
     # Select a random browser from the list
     browser = random.choice(browsers)

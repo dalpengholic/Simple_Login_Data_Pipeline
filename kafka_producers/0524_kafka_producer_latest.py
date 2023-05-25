@@ -3,7 +3,7 @@ from confluent_kafka.serialization import StringSerializer, SerializationContext
 from confluent_kafka.schema_registry import SchemaRegistryClient
 from confluent_kafka.schema_registry.avro import AvroSerializer, AvroDeserializer
 from confluent_kafka.serialization import SerializationContext
-from login_events import create_login_event
+from login_events_generator import create_login_event
 import os
 
 # Define the Kafka topic
