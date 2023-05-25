@@ -8,7 +8,6 @@ services:
       - host.docker.internal:host-gateway
     ports:
       - 8888:8080
-    restart: always
     environment:
       KAFKA_CLUSTERS_0_NAME: local
       KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: broker:29092
