@@ -6,7 +6,7 @@ services:
       dockerfile: Dockerfile.producer 
     container_name: kafka-producer
     volumes:
-      - ./kafka_producers/0524_kafa_producer_latest.py:/app/0524_kafa_producer_latest.py
+      - ./kafka_producers/0524_kafka_producer_latest.py:/app/0524_kafka_producer_latest.py
       - ./kafka_producers/login_events.py:/app/login_events.py
     networks:
       - my-simple-network

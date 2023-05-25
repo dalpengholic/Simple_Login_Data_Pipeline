@@ -15,5 +15,5 @@ WORKDIR /app
 # Copy required files from the builder stage
 COPY --from=builder /usr/local /usr/local
 
-CMD ["python", "0524_kafa_producer_latest.py"]
+CMD ["python", "0524_kafka_producer_latest.py"]
 

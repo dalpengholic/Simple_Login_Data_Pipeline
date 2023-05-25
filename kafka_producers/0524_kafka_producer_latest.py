@@ -5,9 +5,6 @@ from confluent_kafka.schema_registry.avro import AvroSerializer
 from confluent_kafka.serialization import SerializationContext
 from login_events import create_login_event
 
-
-
-
 # Define the Kafka topic
 topic = 'mock_login_topic'
 # Define the Kafka bootstrap servers and Schema Registry URL
@@ -25,6 +22,7 @@ avro_schema_str = '''
         {"name": "user_id", "type": "int"},
         {"name": "timestamp", "type": "string"},
         {"name": "browser_info", "type": "string"}
+        {"name": "country", "type": "string", "default": "null"}   
     ]
 }
 '''
@@ -42,8 +40,6 @@ serialization_context = SerializationContext(
 # Create a Kafka producer instance
 producer_conf = {
     'bootstrap.servers': bootstrap_servers
-#    'key.serializer': StringSerializer('utf_8'),
-#    'value.serializer': avro_serializer
 }
 producer = Producer(producer_conf)
 
