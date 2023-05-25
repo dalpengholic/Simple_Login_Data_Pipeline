@@ -1,7 +1,7 @@
 from confluent_kafka import Producer
 from confluent_kafka.serialization import StringSerializer, SerializationContext, MessageField
 from confluent_kafka.schema_registry import SchemaRegistryClient
-from confluent_kafka.schema_registry.avro import AvroSerializer
+from confluent_kafka.schema_registry.avro import AvroSerializer, AvroDeserializer
 from confluent_kafka.serialization import SerializationContext
 from login_events import create_login_event
 import os
@@ -19,30 +19,6 @@ with open(f"/app/avro/user_login_key.avsc", 'r') as file_key, \
      open(f"/app/avro/user_login_value.avsc", 'r') as file_value:
     avro_key_schema_str = file_key.read()
     avro_value_schema_str = file_value.read()
-
-
-#avro_value_schema_str = '''
-#{
-#    "type": "record",
-#    "name": "LoginEvent",
-#    "fields": [
-#        {"name": "user_id", "type": "int"},
-#        {"name": "timestamp", "type": "string"},
-#        {"name": "browser_info", "type": "string"},
-#        {"name": "country", "type": "string", "default": "null"}   
-#    ]
-#}
-#'''
-# Define the Avro schema for the login event key
-#avro_key_schema_str = '''
-#{
-#  "type": "record",
-#  "name": "LoginEventKey",
-#  "fields": [
-#    {"name": "country", "type": "string", "default": "null"}
-#  ]
-#}
-#'''
 
 
 # Create Avro serializers for the key and value
@@ -78,7 +54,33 @@ def acked(err, msg):
     if err is not None:
         print("Failed to deliver message: %s: %s" % (str(msg), str(err)))
     else:
-        print("Message produced: %s" % (str(msg)))
+        avro_deserializer = AvroDeserializer(schema_str=avro_value_schema_str, schema_registry_client=schema_registry_client)
+        ori_login_event = avro_deserializer(msg.value(), value_serialization_context)
+        print(ori_login_event)
+        print("Message produced: %s" % (str(msg.value())))
+
+
+def generate_and_send_login_events(num_events, producer, callback):
+    for _ in range(num_events):
+        login_event_key, login_event_value = create_login_event()
+        
+        # Serialize the key using the Avro serializer
+        serialized_key = avro_key_serializer(login_event_key, key_serialization_context)
+        
+        # Serialize the value using the Avro serializer
+        serialized_value = avro_value_serializer(login_event_value, value_serialization_context)
+        
+        # Produce the login event
+        producer.produce(topic=topic, key=serialized_key, value=serialized_value, callback=callback)
+        producer.poll(1)
+
+# Generate and send multiple login events
+generate_and_send_login_events(100, producer, acked)
+
+# Wait for any outstanding messages to be delivered and delivery report callbacks to be triggered
+producer.flush()
+
+
 # Produce the login event
-producer.produce(topic=topic, key=serialized_key, value=serialized_value, callback=acked)
-producer.poll(1)
+#producer.produce(topic=topic, key=serialized_key, value=serialized_value, callback=acked)
+#producer.poll(1)
