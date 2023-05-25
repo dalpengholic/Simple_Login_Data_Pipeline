@@ -29,16 +29,19 @@ git clone https://github.com/dalpengholic/Simple_Login_Data_Pipeline.git
 docker network create my-simple-network
 cd Simple...
 
-# Setting necessary folders
+# Set necessary folders
 sudo sysctl -w vm.max_map_count=262144
 
-# Running a single node cluster of zookeeper, kafka, and schema-registry
+# Run a single node cluster of zookeeper, kafka, and schema-registry
 docker-compose -f docker-compose.schema-registry.yml up
 
-# Running a Kafka producer 
+# Run a Kafka producer 
 docker-compose -f docker-compose.kafka-producer.yml up -d
 
-# Running a Elasticsearch and Kibana
+# Run a UI for Kafka
+docker-compose -f docker-compose.ui-kafka.yml up -d
+ 
+# Run a Elasticsearch and Kibana
 mkdir es_data kibana_data spark_data spark_data_checkpoint
 sudo chown -R 1001:1001 es_data kibana_data spark_data spark_data_checkpoint
 docker-compose -f docker-compose.es-kibana.yml up -d
