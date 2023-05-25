@@ -3,6 +3,7 @@ from datetime import datetime, timedelta
 
 def create_login_event():
     browsers = ['safari', 'chrome', 'firefox', 'edge']
+    countries = ['Finland', 'US', 'South Korea', 'India', 'Spain', 'Sweden']
     
     # Generate a random timestamp within the range of 2022 Jan 1st and 2022 Dec 31st
     user_id = random.randint(1, 500)
@@ -13,12 +14,14 @@ def create_login_event():
 
     # Select a random browser from the list
     browser = random.choice(browsers)
+    country = random.choice(countires)
 
     # Create the login event record
     login_event = {
         'user_id': user_id,
         'timestamp': timestamp,
-        'browser_info': browser
+        'browser_info': browser,
+        'country': country
     }
 
     return login_event
