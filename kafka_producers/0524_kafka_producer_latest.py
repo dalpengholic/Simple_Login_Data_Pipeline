@@ -15,31 +15,34 @@ schema_registry_url = 'http://schema-registry:8081'
 schema_registry_conf = {'url': schema_registry_url}
 schema_registry_client = SchemaRegistryClient(schema_registry_conf)
 # Define the Avro schema for the login event as a string
-#with open(f"/app/avro/user_login.avsc") as f:
-#    avro_schema_str = f.read() 
+with open(f"/app/avro/user_login_key.avsc", 'r') as file_key, \
+     open(f"/app/avro/user_login_value.avsc", 'r') as file_value:
+    avro_key_schema_str = file_key.read()
+    avro_value_schema_str = file_value.read()
 
-avro_value_schema_str = '''
-{
-    "type": "record",
-    "name": "LoginEvent",
-    "fields": [
-        {"name": "user_id", "type": "int"},
-        {"name": "timestamp", "type": "string"},
-        {"name": "browser_info", "type": "string"},
-        {"name": "country", "type": "string", "default": "null"}   
-    ]
-}
-'''
+
+#avro_value_schema_str = '''
+#{
+#    "type": "record",
+#    "name": "LoginEvent",
+#    "fields": [
+#        {"name": "user_id", "type": "int"},
+#        {"name": "timestamp", "type": "string"},
+#        {"name": "browser_info", "type": "string"},
+#        {"name": "country", "type": "string", "default": "null"}   
+#    ]
+#}
+#'''
 # Define the Avro schema for the login event key
-avro_key_schema_str = '''
-{
-  "type": "record",
-  "name": "LoginEventKey",
-  "fields": [
-    {"name": "country", "type": "string", "default": "null"}
-  ]
-}
-'''
+#avro_key_schema_str = '''
+#{
+#  "type": "record",
+#  "name": "LoginEventKey",
+#  "fields": [
+#    {"name": "country", "type": "string", "default": "null"}
+#  ]
+#}
+#'''
 
 
 # Create Avro serializers for the key and value

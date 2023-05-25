@@ -1,7 +1,6 @@
 {
     "type": "record",
-    "name": "LoginEvent",
-    "doc" : "Avro schema for login users",
+    "name": "LoginEventValue",
     "fields": [
         {"name": "user_id", "type": "int"},
         {"name": "timestamp", "type": "string"},

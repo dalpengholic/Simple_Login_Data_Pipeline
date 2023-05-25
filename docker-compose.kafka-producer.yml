@@ -8,7 +8,7 @@ services:
     volumes:
       - ./kafka_producers/0524_kafka_producer_latest.py:/app/0524_kafka_producer_latest.py
       - ./kafka_producers/login_events.py:/app/login_events.py
-      - ./avro/user_login.avsc:/app/avro/user_login.avsc
+      - ./avro/:/app/avro/
     networks:
       - my-simple-network
 

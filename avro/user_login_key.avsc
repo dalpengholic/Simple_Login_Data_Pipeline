@@ -1,0 +1,8 @@
+{
+  "type": "record",
+  "name": "LoginEventKey",
+  "fields": [
+    {"name": "country", "type": "string", "default": "null"}
+  ]
+}
+
