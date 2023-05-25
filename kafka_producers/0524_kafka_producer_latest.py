@@ -4,6 +4,7 @@ from confluent_kafka.schema_registry import SchemaRegistryClient
 from confluent_kafka.schema_registry.avro import AvroSerializer
 from confluent_kafka.serialization import SerializationContext
 from login_events import create_login_event
+import os
 
 # Define the Kafka topic
 topic = 'mock_login_topic'
@@ -14,18 +15,21 @@ schema_registry_url = 'http://schema-registry:8081'
 schema_registry_conf = {'url': schema_registry_url}
 schema_registry_client = SchemaRegistryClient(schema_registry_conf)
 # Define the Avro schema for the login event as a string
-avro_schema_str = '''
-{
-    "type": "record",
-    "name": "LoginEvent",
-    "fields": [
-        {"name": "user_id", "type": "int"},
-        {"name": "timestamp", "type": "string"},
-        {"name": "browser_info", "type": "string"},
-        {"name": "country", "type": "string", "default": "null"}   
-    ]
-}
-'''
+with open(f"/app/avro/user_login.avsc") as f:
+    avro_schema_str = f.read() 
+
+#avro_schema_str = '''
+#{
+#    "type": "record",
+#    "name": "LoginEvent",
+#    "fields": [
+#        {"name": "user_id", "type": "int"},
+#        {"name": "timestamp", "type": "string"},
+#        {"name": "browser_info", "type": "string"},
+#        {"name": "country", "type": "string", "default": "null"}   
+#    ]
+#}
+#'''
 
 # Create an Avro serializer with the Schema Registry client and the Avro schema
 avro_serializer = AvroSerializer(schema_str=avro_schema_str, schema_registry_client=schema_registry_client)
