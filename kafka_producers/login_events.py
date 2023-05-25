@@ -17,11 +17,17 @@ def create_login_event():
     country = random.choice(countries)
 
     # Create the login event record
-    login_event = {
+    login_event_value = {
         'user_id': user_id,
         'timestamp': timestamp,
         'browser_info': browser,
         'country': country
     }
 
-    return login_event
+    login_event_key = {
+        'country': country
+    }
+
+            
+
+    return login_event_key, login_event_value
