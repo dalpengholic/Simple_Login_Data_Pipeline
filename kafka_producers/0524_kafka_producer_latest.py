@@ -21,7 +21,7 @@ avro_schema_str = '''
     "fields": [
         {"name": "user_id", "type": "int"},
         {"name": "timestamp", "type": "string"},
-        {"name": "browser_info", "type": "string"}
+        {"name": "browser_info", "type": "string"},
         {"name": "country", "type": "string", "default": "null"}   
     ]
 }
