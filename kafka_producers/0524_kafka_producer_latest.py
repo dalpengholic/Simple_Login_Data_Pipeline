@@ -75,7 +75,7 @@ def generate_and_send_login_events(num_events, producer, callback):
         producer.poll(1)
 
 # Generate and send multiple login events
-generate_and_send_login_events(100, producer, acked)
+generate_and_send_login_events(2000, producer, acked)
 
 # Wait for any outstanding messages to be delivered and delivery report callbacks to be triggered
 producer.flush()
