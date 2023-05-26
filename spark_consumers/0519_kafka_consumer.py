@@ -7,7 +7,7 @@ spark.sparkContext.setLogLevel('ERROR')
 
 # Define the Kafka parameters
 kafka_bootstrap_servers = "broker:9092"
-kafka_topic = "yourtopic2"
+kafka_topic = "mock_login_topic"
 schema_registry_url = "http://schema-registry:8081"  
 
 # Read stream

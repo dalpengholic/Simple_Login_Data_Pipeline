@@ -1,0 +1,6 @@
+FROM bitnami/spark:3.3.2
+
+# Install required packages using pip
+RUN pip install confluent_kafka fastavro urllib3 requests avro
+
+
