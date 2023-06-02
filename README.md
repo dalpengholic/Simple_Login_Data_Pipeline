@@ -31,6 +31,16 @@ data producer - message queue - data consumer - data monitoring & visualization
 
 ### Actions
 - Decoupling kafka-producer:
+- Adding a schemm registry layer:
+  - Replace bitnami/kafka with confluentinc/cp-server:7.3.0 image
+  - Add and run confluentinc/cp-schema-registry:7.3.0 image
+  - Edit Kafka producer app with Confluent Kafka Python client
+  - Edit Spark consumer app with Confluent Kafka Python client and Submit with necessary pacakges
+    - org.elasticsearch:elasticsearch-spark-30_2.12:8.1.2
+    - org.apache.spark:spark-sql-kafka-0-10_2.12:3.4.0
+    - org.apache.spark:spark-avro_2.12:3.4.0
+
+
 ### Results
 ### How to run
 ```Shell
