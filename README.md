@@ -9,16 +9,25 @@ data producer - message queue - data consumer - data monitoring & visualization
 - In this 3rd iteration, this simple data pipeline has to become more advanced version by decoupling kafka-producer and application which calls kafka-producer wrapper and adding data schema management layer.
 
 ### Main goals
-- Decoupling kafka-producer and application which calls kafk
-a-producer wrapper
+- Decoupling kafka-producer and application which calls kafka-producer wrapper
 - Adding a schemy registry layer
-- ![diagram](https://github.com/dalpengholic/Simple_Login_Data_Pipeline/blob/master/pics/simple-data-pipeline-drawio-2nd.png)
+- ![diagram](https://github.com/dalpengholic/Simple_Login_Data_Pipeline/blob/master/pics/simple-data-pipeline-drawio-3rd.png)
 
 ### Risk assessment
 - Making a kakfa-producer wrapper:
-  - Difficulty level: easy?
+  - Expected difficulty level: easy
+  - Real difficulty level: easy 
+
 - Adding a schema registry layer
-  - Difficulty levle: ??
+  - Expected difficulty level: easy
+  - Real difficulty level: hard
+    - Replacing Apache Kafka with Confluent Kafka
+    - Replacing Kafka Python client with official Confluent Kafka Python client for both of producer and consumer
+    - Adding a schema registry layer
+    - Learning how to handle the framework of schema registry and kafka
+    - Kafka message serialized by Confluent avro consists of 5 bytes(Schema id + magic byte) + Avro payload
+    - Spark consumer should handle the 5 bytes correctly
+
 
 ### Actions
 - Decoupling kafka-producer:
