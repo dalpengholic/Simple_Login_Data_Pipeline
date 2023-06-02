@@ -35,5 +35,16 @@ df1 = df.withColumn('fixedValue', fn.expr("substring(value, 6, length(value)-5)"
         .select(from_avro(fn.col("fixedValue"), avro_value_schema_str).alias("data")).select("data.*")
 
 df1.printSchema()
+#df1.show(2)
+
+# Convert timestamp to date and extract month
+df1 = df1.withColumn("datetype_timestamp", fn.to_timestamp(fn.col("timestamp")))
+df1.printSchema()
+#df1.show(2)
+
+# Convert timestamp to date and extract month
+df1 = df1.withColumn("date", df1.datetype_timestamp.cast("date"))
+df1 = df1.withColumn("month", fn.date_format("date", "yyyy-MM"))
+df1.printSchema()
 df1.show(2)
 
