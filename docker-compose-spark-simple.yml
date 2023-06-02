@@ -2,6 +2,7 @@ version: '3.8'
 
 services:
   master:
+    image: bitnami/spark:3.2_edited_1
     build:
       context: ./dockerfile_folder
       dockerfile: Dockerfile.spark
@@ -13,7 +14,7 @@ services:
       - SPARK_MODE=master
     volumes:
       - ./spark_data:/bitnami/spark/data
-      - ./spark_consumers/0526_kafka_consumer.py:/0526_kafka_consumer.py
+      - ./spark_consumers/0601_kafka_consumer.py:/0601_kafka_consumer.py
       - ./pyspark_conda_env.tar.gz:/pyspark_conda_env.tar.gz
       - ./ca.crt:/etc/ssl/certs/elasticsearch/ca.crt:ro
       - ./spark_data_checkpoint:/checkpoint 

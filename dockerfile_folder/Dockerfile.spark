@@ -1,6 +1,16 @@
-FROM bitnami/spark:3.3.2
+FROM bitnami/spark:3.2
 
+#USER root
+#RUN install_packages curl
+#USER 1001
+#
+#RUN curl https://repo1.maven.org/maven2/org/elasticsearch/elasticsearch-spark-30_2.12/8.1.2/elasticsearch-spark-30_2.12-8.1.2.jar --output /opt/bitnami/spark/jars/elasticsearch-spark-30_2.12-8.1.2.jar
+#
+#RUN curl https://repo1.maven.org/maven2/org/apache/spark/spark-avro_2.12/3.2.4/spark-avro_2.12-3.2.4.jar --output /opt/bitnami/spark/jars/spark-avro_2.12-3.2.4.jar
+#
+#RUN curl https://repo1.maven.org/maven2/org/apache/spark/spark-sql-kafka-0-10_2.12/3.2.4/spark-sql-kafka-0-10_2.12-3.2.4.jar --output /opt/bitnami/spark/jars/spark-sql-kafka-0-10_2.12-3.2.4.jar
+#
 # Install required packages using pip
 RUN pip install confluent_kafka fastavro urllib3 requests avro
 
-
+#USER 1001

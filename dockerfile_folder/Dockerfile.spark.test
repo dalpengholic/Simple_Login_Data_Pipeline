@@ -1,0 +1,9 @@
+FROM bitnami/spark:3.3.2
+
+# Install required packages using pip
+RUN pip install confluent_kafka fastavro urllib3 requests avro
+
+
+# Install the required packages
+RUN spark-shell --packages org.elasticsearch:elasticsearch-spark-30_2.12:8.1.2,org.apache.spark:spark-sql-kafka-0-10_2.12:3.4.0
+
