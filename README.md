@@ -53,7 +53,9 @@ sudo chown 1001:1001 ca.crt
 
 # Running a Spark cluseter
 docker-compose -f docker-compose-spark-simple.yml up -d
-docker exec -it spark-node bash -c 'spark-submit --packages org.elasticsearch:elasticsearch-spark-30_2.12:8.1.2,org.apache.spark:spark-sql-kafka-0-10_2.12:3.4.0 /0519_kafka_consumer.py'
+docker exec -it spark-node bash -c 'spark-submit --packages org.elasticsearch:elasticsearch-spark-30_2.12:8.1.2,org.apache.spark:spark-sql-kafka-0-10_2.12:3.4.0,org.apache.spark:spark-avro_2.12:3.4.0 /0601_kafka_consumer.py'
+
+
 ```
 
 ### Visualization layer added for Data Analyst
