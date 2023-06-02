@@ -21,7 +21,7 @@ avro_value_schema_str = registered_value_schema.schema.schema_str
 print(avro_value_schema_str)
 
 # Read stream
-df = spark.read.format("kafka") \
+df = spark.readStream.format("kafka") \
     .option("kafka.bootstrap.servers", kafka_bootstrap_servers) \
     .option("subscribe", kafka_topic) \
     .option("startingOffsets", "earliest") \
@@ -46,5 +46,34 @@ df1.printSchema()
 df1 = df1.withColumn("date", df1.datetype_timestamp.cast("date"))
 df1 = df1.withColumn("month", fn.date_format("date", "yyyy-MM"))
 df1.printSchema()
-df1.show(2)
+#df1.show(2)
+
+# Group by user_id and month, and count the logins
+result = df1.groupBy("month").agg(fn.count("*").alias("total_logins"))
+# Define the Elasticsearch parameters
+es_host = "es"
+es_port = "9200"
+es_index = "user-login"
+es_user = "elastic"
+es_pass = "2KeW2V6tKyJaz9gu"
+
+# Write the DataFrame to Elasticsearch
+result.writeStream \
+    .format("org.elasticsearch.spark.sql") \
+    .option("es.nodes", es_host) \
+    .option("es.port", es_port) \
+    .option("es.nodes.wan.only", "true") \
+    .option("es.net.ssl", "true") \
+    .option("es.net.ssl.cert.allow.self.signed", "true") \
+    .option("es.net.ssl.cert.ca", "ca.crt") \
+    .option("es.net.http.auth.user", es_user) \
+    .option("es.net.http.auth.pass", es_pass) \
+    .option("es.nodes.wan.only", "true") \
+    .option("es.resource", es_index) \
+    .option("checkpointLocation", "/checkpoint") \
+    .option("es.mapping.id", "month") \
+    .option("es.index.auto.create", "true") \
+    .outputMode("Update") \
+    .start() \
+    .awaitTermination()
 
