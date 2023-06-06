@@ -1,0 +1,26 @@
+### Example of dashboard
+- ![dash1](https://github.com/dalpengholic/Simple_Login_Data_Pipeline/blob/master/pics/kibana_example/Screenshot-kibana-1.png)
+- ![dash1](https://github.com/dalpengholic/Simple_Login_Data_Pipeline/blob/master/pics/kibana_example/Screenshot-kibana-2.png)
+- ![dash1](https://github.com/dalpengholic/Simple_Login_Data_Pipeline/blob/master/pics/kibana_example/Screenshot-kibana-3.png)
+- ![dash1](https://github.com/dalpengholic/Simple_Login_Data_Pipeline/blob/master/pics/kibana_example/Screenshot-kibana-4.png)
+- ![dash1](https://github.com/dalpengholic/Simple_Login_Data_Pipeline/blob/master/pics/kibana_example/Screenshot-kibana-5.png)
+- ![dash1](https://github.com/dalpengholic/Simple_Login_Data_Pipeline/blob/master/pics/kibana_example/Screenshot-kibana-6.png)
+- ![dash1](https://github.com/dalpengholic/Simple_Login_Data_Pipeline/blob/master/pics/kibana_example/Screenshot-kibana-7.png)
+- ![dash1](https://github.com/dalpengholic/Simple_Login_Data_Pipeline/blob/master/pics/kibana_example/Screenshot-kibana-8.png)
+- ![dash1](https://github.com/dalpengholic/Simple_Login_Data_Pipeline/blob/master/pics/kibana_example/Screenshot-kibana-9.png)
+- ![dash1](https://github.com/dalpengholic/Simple_Login_Data_Pipeline/blob/master/pics/kibana_example/Screenshot-kibana-10.png)
+- ![dash1](https://github.com/dalpengholic/Simple_Login_Data_Pipeline/blob/master/pics/kibana_example/Screenshot-kibana-11.png)
+- ![dash1](https://github.com/dalpengholic/Simple_Login_Data_Pipeline/blob/master/pics/kibana_example/Screenshot-kibana-12.png)
+- ![dash1](https://github.com/dalpengholic/Simple_Login_Data_Pipeline/blob/master/pics/kibana_example/Screenshot-kibana-13.png)
+- ![dash1](https://github.com/dalpengholic/Simple_Login_Data_Pipeline/blob/master/pics/kibana_example/Screenshot-kibana-14.png)
+- ![dash1](https://github.com/dalpengholic/Simple_Login_Data_Pipeline/blob/master/pics/kibana_example/Screenshot-kibana-15.png)
+- ![dash1](https://github.com/dalpengholic/Simple_Login_Data_Pipeline/blob/master/pics/kibana_example/Screenshot-kibana-16.png)
+- ![dash1](https://github.com/dalpengholic/Simple_Login_Data_Pipeline/blob/master/pics/kibana_example/Screenshot-kibana-17.png)
+- ![dash1](https://github.com/dalpengholic/Simple_Login_Data_Pipeline/blob/master/pics/kibana_example/Screenshot-kibana-18.png)
+- ![dash1](https://github.com/dalpengholic/Simple_Login_Data_Pipeline/blob/master/pics/kibana_example/Screenshot-kibana-19.png)
+- ![dash1](https://github.com/dalpengholic/Simple_Login_Data_Pipeline/blob/master/pics/kibana_example/Screenshot-kibana-20.png)
+- ![dash1](https://github.com/dalpengholic/Simple_Login_Data_Pipeline/blob/master/pics/kibana_example/Screenshot-kibana-21.png)
+- ![dash1](https://github.com/dalpengholic/Simple_Login_Data_Pipeline/blob/master/pics/kibana_example/Screenshot-kibana-22.png)
+
+
+

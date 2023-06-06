@@ -61,7 +61,7 @@ docker-compose -f docker-compose.schema-registry.yml up
 # Run a Kafka producer 
 docker-compose -f docker-compose.kafka-producer.yml up -d
 
-# Run a UI for Kafka (After running below, access to localhost:8888 with a browser)
+# If you want to check Kafka from UI, run a UI for Kafka (After running below, access to localhost:8888 with a browser)
 docker-compose -f docker-compose.ui-kafka.yml up -d
 
  
