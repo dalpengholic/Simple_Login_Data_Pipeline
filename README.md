@@ -77,8 +77,15 @@ sudo chown 1001:1001 ca.crt
 # Running a Spark cluseter
 docker-compose -f docker-compose-spark-simple.yml up -d
 docker exec -it spark-node bash -c 'spark-submit --packages org.elasticsearch:elasticsearch-spark-30_2.12:8.1.2,org.apache.spark:spark-sql-kafka-0-10_2.12:3.4.0,org.apache.spark:spark-avro_2.12:3.4.0 /0601_kafka_consumer.py'
+```
 
+### How to see graphs
+```
+# Open a broser at localhost:5601 (refer: .env)
+- ID: elastic
+- PASSWORD: 2KeW2V6tKyJaz9gu
 
+# Go to dashboard
 ```
 
 ### Visualization layer added for Data Analyst
