@@ -42,6 +42,10 @@ data producer - message queue - data consumer - data monitoring & visualization
 
 
 ### Results
+- ![result1](https://github.com/dalpengholic/Simple_Login_Data_Pipeline/blob/master/pics/es-captured-1.png)
+
+- ![result2](https://github.com/dalpengholic/Simple_Login_Data_Pipeline/blob/master/pics/es-captured-2.png)
+
 ### How to run
 ```Shell
 git clone https://github.com/dalpengholic/Simple_Login_Data_Pipeline.git
