@@ -3,8 +3,8 @@ Simple Login Data Pipeline consisting of
 data producer - message queue - data consumer - data monitoring & visualization
 
 # README iteration
-[1st_README](https://github.com/dalpengholic/Simple_Login_Data_Pipeline/blob/master/README_1st_iteration.md)
-[2nd_README](https://github.com/dalpengholic/Simple_Login_Data_Pipeline/blob/master/README_2nd_iteration.md)
+- [1st_README](https://github.com/dalpengholic/Simple_Login_Data_Pipeline/blob/master/README_1st_iteration.md)
+- [2nd_README](https://github.com/dalpengholic/Simple_Login_Data_Pipeline/blob/master/README_2nd_iteration.md)
 
 ## 3rd iteration 
 ### Project requirements
@@ -88,7 +88,7 @@ docker exec -it spark-node bash -c 'spark-submit --packages org.elasticsearch:el
 - ID: elastic
 - PASSWORD: 2KeW2V6tKyJaz9gu
 ```
-[Kibana_readme](https://github.com/dalpengholic/Simple_Login_Data_Pipeline/blob/master/README_kibana_dashboard.md) 
+- [Check_Kibana_README](https://github.com/dalpengholic/Simple_Login_Data_Pipeline/blob/master/README_kibana_dashboard.md) 
 
 
 ### Visualization layer added for Data Analyst
